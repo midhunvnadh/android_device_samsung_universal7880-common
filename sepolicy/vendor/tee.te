@@ -2,4 +2,7 @@ allow tee efs_file:dir r_dir_perms;
 allow tee efs_file:file rw_file_perms;
 allow tee mnt_vendor_file:dir search;
 
+allow tee efs_file:dir { getattr };
+allow tee efs_file:file { getattr open read };
+
 dontaudit tee system_prop:property_service set;
