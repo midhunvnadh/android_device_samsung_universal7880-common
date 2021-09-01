@@ -4,5 +4,7 @@ allow tee mnt_vendor_file:dir search;
 
 allow tee efs_file:dir { getattr };
 allow tee efs_file:file { getattr open read };
+allow tee block_device:dir { getattr search };
+allow tee mmc_rpmb_char_device:chr_file rw_file_perms;
 
 dontaudit tee system_prop:property_service set;

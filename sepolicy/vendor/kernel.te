@@ -4,10 +4,13 @@ allow kernel sensor_factoryapp_efs_file:file open;
 allow kernel efs_file:dir search;
 
 allow kernel device:chr_file { getattr setattr unlink create };
-allow kernel device:dir create_dir_perms;
-allow kernel self:capability { sys_rawio mknod };
+allow kernel device:dir { create write remove_name rmdir add_name create_dir_perms };
+allow kernel self:capability { sys_rawio mknod chown };
 
 allow kernel block_device:dir search;
 
 allow kernel sysfs_sec_key:dir search;
 r_dir_file(kernel, sysfs_virtual)
+
+allow kernel selinuxfs:file write;
+allow kernel self:security setcheckreqprot;
