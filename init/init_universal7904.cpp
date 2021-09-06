@@ -76,6 +76,10 @@ void vendor_load_properties() {
 
     model = GetProperty("ro.boot.product.model", "");
 
+	if(model.empty()){
+        model = GetProperty("ro.boot.em.model", "");
+    }
+
     if (model == "SM-M205FN" || model == "SM-A305FN" || model == "SM-A405FN" || model == "SM-A405FM") {
     property_override("ro.boot.product.hardware.sku", "NFC");
     }

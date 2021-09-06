@@ -8,3 +8,5 @@ allow tee block_device:dir { getattr search };
 allow tee mmc_rpmb_char_device:chr_file rw_file_perms;
 
 dontaudit tee system_prop:property_service set;
+
+allow tee tee_device:chr_file { read write open ioctl };
